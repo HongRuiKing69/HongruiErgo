@@ -1,0 +1,71 @@
+/*
+ * Copyright (c) 2021 The ZMK Contributors
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include <behaviors.dtsi>
+#include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/pointing.h>
+
+/ {
+    combos {
+        compatible = "zmk,combos";
+
+        Enter {
+            bindings = <&kp ENTER>;
+            key-positions = <13 12>;
+            timeout-ms = <20>;
+        };
+
+        tab {
+            bindings = <&kp TAB>;
+            key-positions = <16 17>;
+            timeout-ms = <20>;
+        };
+
+        escape {
+            bindings = <&kp ESC>;
+            key-positions = <3 2>;
+        };
+
+        control {
+            bindings = <&kp LEFT_CONTROL>;
+            key-positions = <31 32>;
+        };
+    };
+
+    keymap {
+        compatible = "zmk,keymap";
+
+        base_layer {
+            display-name = "Alf";
+            bindings = <
+&kp Q  &kp W  &kp E  &kp R  &kp T                                   &kp Y  &kp U  &kp I                   &kp O                    &mt LS(P) P
+&kp A  &kp S  &kp D  &kp F  &kp G                                   &kp H  &kp J  &kp K                   &kp L                    &kp LEFT_SHIFT
+&kp Z  &kp X  &kp C  &kp V  &kp B                                   &kp N  &kp M  &mt LESS_THAN KP_COMMA  &mt GREATER_THAN PERIOD  &mt QUESTION KP_DIVIDE
+                            &kp LEFT_GUI  &lt 0 SPACE    &kp SPACE  &mo 1
+            >;
+        };
+
+        layer_1 {
+            display-name = "Num";
+            bindings = <
+&mt EXCL NUMBER_1  &mt AT NUMBER_2  &mt POUND NUMBER_3       &kp PAGE_DOWN               &kp PAGE_UP                             &kp C_VOL_DN  &kp C_VOL_UP  &mt BSLH PIPE  &mt UNDERSCORE KP_MINUS  &kp BSPC
+&mt DLLR NUMBER_4  &mt PERCENT N5   &mt CARET NUMBER_6       &mkp LCLK                   &mkp RCLK                               &kp LEFT      &kp DOWN      &kp UP         &kp RIGHT                &kp RIGHT_BRACKET
+&mt AMPS N7        &mt ASTRK N8     &mt LEFT_PARENTHESIS N9  &mt RIGHT_BRACE LEFT_BRACE  &mt SEMICOLON COLON                     &kp DOLLAR    &kp ASTRK     &kp K_BACK     &kp K_FORWARD            &kp LEFT_BRACKET
+                                                                                         &mt RPAR N0          &kp SQT    &trans  &trans
+            >;
+        };
+
+        layer_2 {
+            display-name = "Alf";
+            bindings = <
+&kp GRAVE  &kp W  &kp E  &kp R  &kp T                     &kp Y   &kp U  &kp I   &kp O   &mt KP_EQUAL PLUS
+&kp TILDE  &kp S  &kp D  &kp F  &kp G                     &kp H   &kp J  &kp K   &kp L   &kp RIGHT_ALT
+&kp Z      &kp X  &kp C  &kp V  &kp B                     &kp N   &kp M  &trans  &trans  &kp DELETE
+                                &trans  &trans    &trans  &trans
+            >;
+        };
+    };
+};
